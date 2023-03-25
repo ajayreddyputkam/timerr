@@ -4,6 +4,10 @@ import './index.css'
 
 class Stopwatch extends Component {
   state = {isTimerRunning: false, totalSeconds: 0}
+  
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
+  }
 
   incrementSeconds = () => {
     this.setState(prevState => ({totalSeconds: prevState.totalSeconds + 1}))
